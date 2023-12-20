@@ -1,5 +1,4 @@
 >> npm init -y
 >> npm install bootstrap@5 bootstrap-icons jquery sweetalert2 fullcalendar apexcharts moment timeago tinymce jszip pdfmake datatables.net-bs5 datatables.net-buttons-bs5 datatables.net-responsive-bs5
 >> npm install --save-dev webpack webpack-cli
->> mkdir src
->> touch src/index.js
+>> npx webpack init
