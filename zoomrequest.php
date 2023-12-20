@@ -11,7 +11,7 @@ require_once "components/sidebar.php";
     <h1><?= $page ?></h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Form</a></li>
+        <li class="breadcrumb-item"><a href="index.html">Forms</a></li>
         <li class="breadcrumb-item active"><?= $page ?></li>
       </ol>
     </nav>
@@ -69,6 +69,12 @@ require_once "components/sidebar.php";
       </div>
     </div>
   </section>
+  <style>
+    #calendar a{
+      color: black;
+      cursor: pointer;
+    }
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
@@ -78,7 +84,22 @@ require_once "components/sidebar.php";
           month: 'short',
           year: 'numeric'
         },
-        dayMaxEventRows: 1
+        dayMaxEventRows: 1,
+        events: [
+          <?php
+          $query = $conn->query("SELECT * FROM meetings");
+          while ($row = $query->fetch_object()) {
+          ?> {
+              groupId: <?= $row->id ?>,
+              title: '<?= $row->Topic ?>',
+              start: '<?= $row->DateSchedule ?>T<?= $row->TimeStart ?>',
+              end: '<?= $row->DateSchedule ?>T<?= $row->TimeEnd ?>',
+              color: '#fd7e14'
+            },
+          <?php
+          }
+          ?>
+        ]
       });
       calendar.render();
     });

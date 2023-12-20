@@ -18,41 +18,41 @@
         </li><!-- End Profile Page Nav -->
         <li class="nav-heading">Forms</li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="zrt.php">
+            <a class="nav-link collapsed" href="zoomrequest.php">
                 <i class="bi bi-camera-video"></i>
                 <span>Zoom Request</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="oia.php">
-                <i class="bi bi-laptop"></i>
-                <span>ICT Helpdesk</span>
+            <a class="nav-link collapsed" href="assistance.php">
+                <i class="bi bi-tools"></i>
+                <span>ICT Request</span>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="mjr.php">
-                <i class="bi bi-tools"></i>
-                <span>ICT Maintenance</span>
-            </a>
-        </li>
         <li class="nav-heading">Pages</li>
 
         <?php
         switch ($_SESSION['Role']) {
             case 'Employee':
         ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link collapsed" href="ictrequestform.php">
                         <i class="bi bi-input-cursor-text"></i>
                         <span>Request Form</span>
                     </a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="ictrequests.php">
+                        <i class="bi bi-card-list"></i>
+                        <span>My Requests</span>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="ictrequests.php">
-                        <i class="bi bi-input-cursor-text"></i>
-                        <span>My Requests</span>
+                        <i class="bi bi-calendar"></i>
+                        <span>My Meetings</span>
                     </a>
                 </li>
                 <li class="nav-item">

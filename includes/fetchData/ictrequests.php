@@ -44,13 +44,13 @@ if ($searchValue != '') {
 }
 
 // Total number of records without filtering
-$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM helpdesks WHERE RequestedBy=" . $_SESSION['id'] . " ");
+$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM helpdesks WHERE RequestedBy=" . $_SESSION['id'] . " AND `Status`='" . $_POST['Status'] . "'" . " ");
 $stmt->execute();
 $records = $stmt->fetch();
 $totalRecords = $records['allcount'];
 
 // Total number of records with filtering
-$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM helpdesks h LEFT JOIN users rb ON h.RequestedBy = rb.id LEFT JOIN divisions d ON rb.`DivisionID` = d.id LEFT JOIN categories c ON h.`CategoryID` = c.id WHERE RequestedBy=" . $_SESSION['id'] . " " . $searchQuery);
+$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM helpdesks h LEFT JOIN users rb ON h.RequestedBy = rb.id LEFT JOIN divisions d ON rb.`DivisionID` = d.id LEFT JOIN categories c ON h.`CategoryID` = c.id WHERE RequestedBy=" . $_SESSION['id'] . " AND h.`Status`='" . $_POST['Status'] . "'" . " " . $searchQuery);
 $stmt->execute($searchArray);
 $records = $stmt->fetch();
 $totalRecordwithFilter = $records['allcount'];
